@@ -16,4 +16,8 @@ public class Debutant extends Jeu {
 		
 	}
 
+	void stop(){
+		
+	}
+
 }

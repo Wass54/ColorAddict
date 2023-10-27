@@ -14,6 +14,11 @@ public abstract class Jeu {
 	 */
 	private ArrayList<Carte> cartesTable = new ArrayList<Carte>();
 
+	/**
+	 * Attribut correspondant aux joueurs qui sont présents dans le jeu
+	 */
+	private ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
+
 
 	/**
 	 * Constructeur permettant l'instanciation du jeu avec ses cartes 

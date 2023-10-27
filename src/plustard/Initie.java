@@ -17,4 +17,7 @@ public class Initie extends Jeu {
 		
 	}
 
+	void stop(){
+		
+	}
 }

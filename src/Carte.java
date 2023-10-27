@@ -22,6 +22,20 @@ public class Carte {
 	    this.couleur=couleur;
 	}
 
+	/**
+	 * Méthode permettant de voir si deux cartes sont égaux.
+	 * @param b deuxième carte
+	 * @return true si les deux cartes sont de mêmes couleurs sinon false
+	 */
+	
+	public boolean equalsCarte(Carte b){
+		if(this.getCouleur().equals(b.getCouleur())){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 
 
 	/**
@@ -37,13 +51,13 @@ public class Carte {
 		return nom;
 	}
 	public void setNom(String nom) {
-		this.listCartes = nom;
+		this.nom = nom;
 	}
 	public String getCouleur() {
 		return couleur;
 	}
 	public void setCouleur(String couleur) {
-		this.couleur = nom;
+		this.couleur = couleur;
 	}
 
 	  

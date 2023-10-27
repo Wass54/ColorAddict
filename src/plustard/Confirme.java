@@ -18,4 +18,8 @@ public class Confirme extends Jeu {
 		
 	}
 
+	void stop(){
+		
+	}
+
 }
