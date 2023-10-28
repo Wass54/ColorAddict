@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Classe correspondant à un joueur
  */
@@ -14,8 +14,10 @@ public class Joueur {
      */
     private Carte main;
 
-    
-    
+    /**
+     * Attribut correspondant au total des cartes que possède le joueur
+     */
+    private ArrayList<Carte> cartes;
 
 
 
@@ -27,7 +29,7 @@ public class Joueur {
 	 */
 	@Override
 	public String toString() {
-		return "Joueur [nom=" + nom + ", main=" + main + "]";
+		return "Joueur [nom=" + nom + ", main=" + main + ", cartes=" + cartes +"]";
 	}
 
 	public String getNom() {
@@ -36,11 +38,19 @@ public class Joueur {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 	public Carte getMain() {
 		return main;
 	}
 	public void setMain(Carte main) {
 		this.main = main;
 	}
+
+    public ArrayList<Carte> cartes(){
+        return cartes;
+    }
+    public void setCartes(ArrayList<Carte> cartes){
+        this.cartes = cartes;
+    }
 
 }

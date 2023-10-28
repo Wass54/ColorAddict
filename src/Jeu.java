@@ -6,11 +6,11 @@ import java.util.ArrayList;
 public abstract class Jeu {
 
 	/**
-	 * Attribut correspondant aux total des cartes présentes dans le jeu
+	 * Attribut correspondant au total des cartes présentes dans le jeu
 	 */
 	private ArrayList<Carte> listeCartes = new ArrayList<Carte>();
 	/**
-	 * Attribut correspondant aux cartes qui sont déposées sur la table
+	 * Attribut correspondant aux cartes qui sont déposées au centre de la table
 	 */
 	private ArrayList<Carte> cartesTable = new ArrayList<Carte>();
 
@@ -25,9 +25,10 @@ public abstract class Jeu {
 	 * @param listeCartes
 	 * @param cartesTable
 	 */
-	public Jeu(ArrayList<Carte> listeCartes, ArrayList<Carte> cartesTable) {
+	public Jeu(ArrayList<Carte> listeCartes, ArrayList<Carte> cartesTable, ArrayList<Joueur> joueurs) {
 		this.listeCartes = listeCartes;
 		this.cartesTable = cartesTable;
+		this.joueurs = joueurs;
 	}
 
 	/**
@@ -39,7 +40,9 @@ public abstract class Jeu {
 	/**
 	 * Méthode abstraite permettant l'arret du jeu
 	 */
-	abstract void stop();
+	public void stop(){
+
+	}
 
 
 
@@ -60,11 +63,19 @@ public abstract class Jeu {
 	public void setlisteCartes(ArrayList<Carte> listeCartes) {
 		this.listeCartes = listeCartes;
 	}
+
 	public ArrayList<Carte> getCartesTable() {
 		return cartesTable;
 	}
 	public void setCartesTable(ArrayList<Carte> cartesTable) {
 		this.cartesTable = cartesTable;
+	}
+
+	public ArrayList<Joueur> getJoueurs() {
+		return joueurs;
+	}
+	public void setJoueurs(ArrayList<Joueur> joueurs) {
+		this.joueurs = joueurs;
 	}
 	
 	
