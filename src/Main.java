@@ -82,12 +82,7 @@ public class Main {
 
 	    //Debutant jeu = new Debutant(Collections.shuffle(listeCartes), );
 
-	     
-	      /**
-		   *  120 cartes
-		   *  
-		   */
-	    
+
 		
 	}
 

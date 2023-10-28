@@ -9,15 +9,15 @@ public abstract class Jeu {
 	/**
 	 * Attribut correspondant au total des cartes présentes dans le jeu
 	 */
-	private ArrayList<Carte> listeCartes;
+	protected ArrayList<Carte> listeCartes;
 	/**
 	 * Attribut correspondant aux cartes qui sont déposées au centre de la table
 	 */
-	private Stack<Carte> cartesTable;
+	protected Stack<Carte> cartesTable;
 	/**
 	 * Attribut correspondant aux joueurs qui sont présents dans le jeu
 	 */
-	private ArrayList<Joueur> joueurs;
+	protected ArrayList<Joueur> joueurs;
 
 
 	/**
