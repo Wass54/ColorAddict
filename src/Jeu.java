@@ -1,5 +1,6 @@
 import java.util.ArrayList;
-
+import java.util.Stack;
+import java.util.Collections;
 /**
  * Classe permettant le fonctionnement du jeu en général
  */   
@@ -8,16 +9,15 @@ public abstract class Jeu {
 	/**
 	 * Attribut correspondant au total des cartes présentes dans le jeu
 	 */
-	private ArrayList<Carte> listeCartes = new ArrayList<Carte>();
+	private ArrayList<Carte> listeCartes;
 	/**
 	 * Attribut correspondant aux cartes qui sont déposées au centre de la table
 	 */
-	private ArrayList<Carte> cartesTable = new ArrayList<Carte>();
-
+	private Stack<Carte> cartesTable;
 	/**
 	 * Attribut correspondant aux joueurs qui sont présents dans le jeu
 	 */
-	private ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
+	private ArrayList<Joueur> joueurs;
 
 
 	/**
@@ -25,7 +25,7 @@ public abstract class Jeu {
 	 * @param listeCartes
 	 * @param cartesTable
 	 */
-	public Jeu(ArrayList<Carte> listeCartes, ArrayList<Carte> cartesTable, ArrayList<Joueur> joueurs) {
+	public Jeu(ArrayList<Carte> listeCartes, Stack<Carte> cartesTable, ArrayList<Joueur> joueurs) {
 		this.listeCartes = listeCartes;
 		this.cartesTable = cartesTable;
 		this.joueurs = joueurs;
@@ -39,9 +39,31 @@ public abstract class Jeu {
 
 	/**
 	 * Méthode abstraite permettant l'arret du jeu
+	 * @return true si un joueur n'a plus de carte donc arrete la partie si tout le monde a des cartes encore retourne false
 	 */
-	public void stop(){
+	public boolean stop(){
+		boolean res = false;
+		for(int i = 0; i < joueurs.size(); i++){
+			if(joueurs.get(i).getCartes().isEmpty()){
+				res = true;
+			}
+		}
+		return res;
+	}
 
+	/**
+	 * permet de melanger les cartes
+	 */
+	public void melangerCartes(){
+		Collections.shuffle(this.listeCartes);
+	}
+
+	/**
+	 * Méthode permettant de poser une carte au centre de la table
+	 * @param carte
+	 */
+	public void ajouterCarteSurTable(Carte carte){
+		cartesTable.push(carte);
 	}
 
 
@@ -64,10 +86,10 @@ public abstract class Jeu {
 		this.listeCartes = listeCartes;
 	}
 
-	public ArrayList<Carte> getCartesTable() {
+	public Stack<Carte> getCartesTable() {
 		return cartesTable;
 	}
-	public void setCartesTable(ArrayList<Carte> cartesTable) {
+	public void setCartesTable(Stack<Carte> cartesTable) {
 		this.cartesTable = cartesTable;
 	}
 

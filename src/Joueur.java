@@ -19,8 +19,17 @@ public class Joueur {
      */
     private ArrayList<Carte> cartes;
 
-
-
+    /**
+     * Constructeur permettant d'instancier un joueur
+     * @param nom
+     * @param main
+     * @param cartes
+     */
+    public Joueur(String nom, Carte main, ArrayList<Carte> cartes){
+        this.nom = nom;
+        this.main = main;
+        this.cartes = cartes;
+    }
 
 
     /**
@@ -46,7 +55,7 @@ public class Joueur {
 		this.main = main;
 	}
 
-    public ArrayList<Carte> cartes(){
+    public ArrayList<Carte> getCartes(){
         return cartes;
     }
     public void setCartes(ArrayList<Carte> cartes){
