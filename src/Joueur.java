@@ -20,7 +20,6 @@ public class Joueur {
      * Constructeur permettant d'instancier un joueur
      * @param nom
      * @param main
-     * @param cartes
      */
     public Joueur(String nom,ArrayList<Carte> main){
         this.nom = nom;
@@ -31,9 +30,10 @@ public class Joueur {
 	 * Méthode permettant de piocher une carte 
 	 * @param listeCartes
 	 */
-	public void piocherCarte(ArrayList<Carte> listeCartes){
+	public void piocherCarte(Stack<Carte> listeCartes){
         if(main.size() < 3){
-            main.add(listeCartes.get(0));
+            main.add(listeCartes.peek());
+            listeCartes.pop();
         }else{
             System.out.println("Erreur: Votre main contient déjà 3 cartes" +
                          "impossible d'en piocher une autre!");
@@ -43,19 +43,36 @@ public class Joueur {
     /**
      * Méthode permettant de jouer une carte de sa Main
      * @param cartesTable
+     * @param niveau
+     * @return true si la carte a été jouée
      */
-    public void jouerCarteMain(Stack<Carte> cartesTable){
+    public boolean jouerCarteMain(Stack<Carte> cartesTable, String niveau){
         Carte tmp = cartesTable.peek();
+        boolean res = false;
 
-        for(int i = 0; i < main.size(); i++){
-            if(main.get(i).getNom().equals(tmp.getNom()) || main.get(i).getCouleur().equals(tmp.getCouleur())){
-                cartesTable.push(main.get(i));
-                main.remove(i);
+        //ne pas oublier dans l'interface, quand l'utilisateur il choisit une carte Joker de lui demander il veut passer à quelle couleur ensuite dans le code changer le setCouleur de la carte Joker
+
+        if (niveau.equals("Debutant")){
+            for(int i = 0; i < main.size(); i++){
+                if(main.get(i).getNom().equals(tmp.getNom()) || main.get(i).getCouleur().equals(tmp.getCouleur()) 
+                || main.get(i).getNom().equals("Joker")){
+                    cartesTable.push(main.get(i));
+                    main.remove(i);
+                    res = true;
+                }
             }
+
+
+        }else if(niveau.equals("Initie")){
+            System.out.println("A implementer");
+        }else if(niveau.equals("Confirme")){
+            System.out.println("A implementer");
         }
 
 
+        return res;
     }
+    
 
 
     /**
