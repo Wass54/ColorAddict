@@ -75,7 +75,7 @@ public abstract class Jeu {
 	 */
 	@Override
 	public String toString() {
-		return "Jeu [listeCartes=" + listeCartes + ", cartesTable=" + cartesTable + "]";
+		return "Jeu [listeCartes=" + listeCartes + ", cartesTable=" + cartesTable + ", joueurs=" + joueurs +"]";
 	}
 	
 	
