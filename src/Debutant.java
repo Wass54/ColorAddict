@@ -30,16 +30,16 @@ public class Debutant extends Jeu{
     }
 
     public void jouerTour(Joueur joueur){
-        
+
     }
 
 
 
     /**
      * pour le mode débutant on remplit qu'avec des ROUGE, BLEU, JAUNE et VERT
-     * @return une liste de carte mélangée pr les distribuer aux joueurs
+     * @return une pile de carte mélangée pr les distribuer aux joueurs
      */
-    public ArrayList<Carte> remplissageCarte(){
+    public Stack<Carte> remplissageCarte(){
 		//Carte joker
 		Carte[] joker = {
 			new Carte("Joker", "Joker")
@@ -73,7 +73,7 @@ public class Debutant extends Jeu{
 			new Carte("Bleu", "Bleu")
 		};
 
-		ArrayList<Carte> listeCartes = new ArrayList<Carte>();
+		Stack<Carte> listeCartes = new Stack<Carte>();
 		for(int i = 0; i < 3; i++){
 			listeCartes.addAll(Arrays.asList(joker));
 			listeCartes.addAll(Arrays.asList(cartesJaune));

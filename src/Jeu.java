@@ -10,7 +10,7 @@ public abstract class Jeu {
 	/**
 	 * Attribut correspondant à une pile et qui fait réf. au total des cartes présentes dans le jeu
 	 */
-	protected ArrayList<Carte> listeCartes;
+	protected Stack<Carte> listeCartes;
 	/**
 	 * Attribut correspondant à une pile et qui fait référence aux cartes qui sont déposées au centre de la table
 	 */
@@ -68,9 +68,9 @@ public abstract class Jeu {
 	/**
 	 * Méthode permettant de remplir le jeu avec des cartes tout en étant mélangé 
 	 * afin de plus facilement donner les cartes aux joueurs
-	 * @return une liste de cartes mélangées
+	 * @return une pile de cartes mélangées
 	 */
-	public abstract ArrayList<Carte> remplissageCarte();
+	public abstract Stack<Carte> remplissageCarte();
 
 	/**
 	 * Méthode permettant de poser une carte au centre de la table
@@ -85,7 +85,7 @@ public abstract class Jeu {
 	 * @param listeCartes
 	 * @return
 	 */
-	public ArrayList<Carte> melangerCartes(ArrayList<Carte> listeCartes){
+	public Stack<Carte> melangerCartes(Stack<Carte> listeCartes){
 		Collections.shuffle(listeCartes);
 		return listeCartes;
 	}
@@ -102,10 +102,10 @@ public abstract class Jeu {
 	}
 	
 	
-	public ArrayList<Carte> getlisteCartes() {
+	public Stack<Carte> getlisteCartes() {
 		return listeCartes;
 	}
-	public void setlisteCartes(ArrayList<Carte> listeCartes) {
+	public void setlisteCartes(Stack<Carte> listeCartes) {
 		this.listeCartes = listeCartes;
 	}
 
