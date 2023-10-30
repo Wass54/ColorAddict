@@ -1,4 +1,4 @@
-package Carte;import java.awt.BorderLayout;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -19,7 +19,7 @@ private static JFrame frame;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Carte carte = new Carte("ROUGE", "blue");
+		//Carte carte = new Carte("ROUGE", "blue");
 
 		JFrame frame=new JFrame("Color Addict");
 		frame.setSize(400,600);
@@ -35,11 +35,11 @@ private static JFrame frame;
 		JPanel cardPanel=new JPanel();
 
 		cardPanel.setBackground( Color.WHITE);
-		JLabel cardLabel =new JLabel(new ImageIcon("C:/Users/rekbi/eclipse-workspace/ProjetColorAddict/71nSqf3JF8L._AC_SX450_.jpg"));
+		JLabel cardLabel =new JLabel(new ImageIcon("./image/mainmenu.jpg"));
 		cardPanel.add(titleLabel);
 		cardPanel.add(cardLabel);
 		//mettre une photo d'icon
-		ImageIcon icon = new ImageIcon("C:/Users/rekbi/eclipse-workspace/ProjetColorAddict/src/COLOR-ADDICT-JEU-DE-BASE-FRANC387AIS__3114524104001-Z.png"); // Remplacez par le chemin de votre image
+		ImageIcon icon = new ImageIcon("./image/icon.png"); // Remplacez par le chemin de votre image
 		frame.setIconImage(icon.getImage());
 		//creation des boutons:
 		JPanel buttonPanel1=new JPanel();
