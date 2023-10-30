@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Stack;
 /**
  * Classe correspondant à un joueur
  */
@@ -10,14 +11,10 @@ public class Joueur {
     private String nom;
 
     /**
-     * Attribut correspondant à la carte qu'il a en main
+     * Attribut correspondant aux cartes à sa main
      */
-    private Carte main;
+    private ArrayList<Carte> main;
 
-    /**
-     * Attribut correspondant au total des cartes que possède le joueur
-     */
-    private ArrayList<Carte> cartes;
 
     /**
      * Constructeur permettant d'instancier un joueur
@@ -25,10 +22,39 @@ public class Joueur {
      * @param main
      * @param cartes
      */
-    public Joueur(String nom, Carte main, ArrayList<Carte> cartes){
+    public Joueur(String nom,ArrayList<Carte> main){
         this.nom = nom;
         this.main = main;
-        this.cartes = cartes;
+    }
+
+    /**
+	 * Méthode permettant de piocher une carte 
+	 * @param listeCartes
+	 */
+	public void piocherCarte(ArrayList<Carte> listeCartes){
+        if(main.size() < 3){
+            main.add(listeCartes.get(0));
+        }else{
+            System.out.println("Erreur: Votre main contient déjà 3 cartes" +
+                         "impossible d'en piocher une autre!");
+        }
+	}
+
+    /**
+     * Méthode permettant de jouer une carte de sa Main
+     * @param cartesTable
+     */
+    public void jouerCarteMain(Stack<Carte> cartesTable){
+        Carte tmp = cartesTable.peek();
+
+        for(int i = 0; i < main.size(); i++){
+            if(main.get(i).getNom().equals(tmp.getNom()) || main.get(i).getCouleur().equals(tmp.getCouleur())){
+                cartesTable.push(main.get(i));
+                main.remove(i);
+            }
+        }
+
+
     }
 
 
@@ -38,7 +64,7 @@ public class Joueur {
 	 */
 	@Override
 	public String toString() {
-		return "Joueur [nom=" + nom + ", main=" + main + ", cartes=" + cartes +"]";
+		return "Joueur [nom=" + nom + ", main=" + main + "]";
 	}
 
 	public String getNom() {
@@ -48,18 +74,11 @@ public class Joueur {
 		this.nom = nom;
 	}
 
-	public Carte getMain() {
+	public ArrayList<Carte> getMain() {
 		return main;
 	}
-	public void setMain(Carte main) {
+	public void setMain(ArrayList<Carte> main) {
 		this.main = main;
 	}
-
-    public ArrayList<Carte> getCartes(){
-        return cartes;
-    }
-    public void setCartes(ArrayList<Carte> cartes){
-        this.cartes = cartes;
-    }
 
 }

@@ -27,7 +27,6 @@ public class Carte {
 	 * @param b deuxième carte
 	 * @return true si les deux cartes sont de mêmes couleurs sinon false
 	 */
-	
 	public boolean equalsCarte(Carte b){
 		if(this.getCouleur().equals(b.getCouleur())){
 			return true;
@@ -35,8 +34,6 @@ public class Carte {
 			return false;
 		}
 	}
-
-
 
 	/**
 	 * Méthodes basiques

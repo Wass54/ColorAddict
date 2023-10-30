@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Stack;
 import java.util.Collections;
 /**
@@ -7,26 +8,33 @@ import java.util.Collections;
 public abstract class Jeu {
 
 	/**
-	 * Attribut correspondant au total des cartes présentes dans le jeu
+	 * Attribut correspondant à une pile et qui fait réf. au total des cartes présentes dans le jeu
 	 */
 	protected ArrayList<Carte> listeCartes;
 	/**
-	 * Attribut correspondant aux cartes qui sont déposées au centre de la table
+	 * Attribut correspondant à une pile et qui fait référence aux cartes qui sont déposées au centre de la table
 	 */
 	protected Stack<Carte> cartesTable;
 	/**
 	 * Attribut correspondant aux joueurs qui sont présents dans le jeu
 	 */
 	protected ArrayList<Joueur> joueurs;
+	
+	/**
+	 * Attribut permettant de savoir y a eu cb de tours 
+	 */
+	protected int nbTours = 0;
+
+	
 
 
 	/**
 	 * Constructeur permettant l'instanciation du jeu avec ses cartes 
-	 * @param listeCartes
 	 * @param cartesTable
+	 * @param joueurs
 	 */
-	public Jeu(ArrayList<Carte> listeCartes, Stack<Carte> cartesTable, ArrayList<Joueur> joueurs) {
-		this.listeCartes = listeCartes;
+	public Jeu(Stack<Carte> cartesTable, ArrayList<Joueur> joueurs) {
+		this.listeCartes = remplissageCarte();
 		this.cartesTable = cartesTable;
 		this.joueurs = joueurs;
 	}
@@ -36,6 +44,12 @@ public abstract class Jeu {
 	 */
 	abstract void jouer();
 
+	/**
+	 * Méthode permettant au joueur de jouer
+	 * @param joueur
+	 */
+	abstract void jouerTour(Joueur joueur);
+
 
 	/**
 	 * Méthode abstraite permettant l'arret du jeu
@@ -44,7 +58,7 @@ public abstract class Jeu {
 	public boolean stop(){
 		boolean res = false;
 		for(int i = 0; i < joueurs.size(); i++){
-			if(joueurs.get(i).getCartes().isEmpty()){
+			if(joueurs.get(i).getMain().isEmpty()){
 				res = true;
 			}
 		}
@@ -52,11 +66,11 @@ public abstract class Jeu {
 	}
 
 	/**
-	 * permet de melanger les cartes
+	 * Méthode permettant de remplir le jeu avec des cartes tout en étant mélangé 
+	 * afin de plus facilement donner les cartes aux joueurs
+	 * @return une liste de cartes mélangées
 	 */
-	public void melangerCartes(){
-		Collections.shuffle(this.listeCartes);
-	}
+	public abstract ArrayList<Carte> remplissageCarte();
 
 	/**
 	 * Méthode permettant de poser une carte au centre de la table
@@ -66,6 +80,15 @@ public abstract class Jeu {
 		cartesTable.push(carte);
 	}
 
+	/**
+	 * permet de mélanger une liste de carte
+	 * @param listeCartes
+	 * @return
+	 */
+	public ArrayList<Carte> melangerCartes(ArrayList<Carte> listeCartes){
+		Collections.shuffle(listeCartes);
+		return listeCartes;
+	}
 
 
 
