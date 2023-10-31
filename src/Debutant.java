@@ -17,6 +17,7 @@ public class Debutant extends Jeu{
             while(super.stop() != true){
                 super.nbTours++;
                 System.out.println("Tour n°" + super.nbTours);
+				System.out.println("-------------------");
                 System.out.println("Tour joueur 1" + joueur1.toString());
                 jouerTour(joueur1);
                 if(super.stop()) break;
@@ -37,10 +38,12 @@ public class Debutant extends Jeu{
                 joueur.piocherCarte(super.listeCartes);
             }else{ 
                 //le joueur possède plus de 3 cartes -> il pose sa carte et ne repioche plus
+				System.out.println("Le joueur possède plus de 3 cartes il pose sa carte mais ne pioche pas");
                 joueur.jouerCarteMain(super.cartesTable , "Debutant");
             }
             
         }else{ //peut pas poser une carte , il pioche et passe son tour
+			System.out.println("Le joueur pioche juste sa carte");
             joueur.piocherCarte(super.listeCartes); 
         }
     }

@@ -56,9 +56,12 @@ public class Joueur {
             for(int i = 0; i < main.size(); i++){
                 if(main.get(i).getNom().equals(tmp.getNom()) || main.get(i).getCouleur().equals(tmp.getCouleur()) 
                 || main.get(i).getNom().equals("Joker")){
+                    System.out.println("Le joueur joue la carte: " + main.get(i));
                     cartesTable.push(main.get(i));
                     main.remove(i);
                     res = true;
+                }else{
+                    System.out.println("Le joueur n'a aucuen carte à jouer, il pioche une carte");
                 }
             }
 
