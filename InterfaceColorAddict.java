@@ -88,14 +88,14 @@ private static JFrame frame;
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Supprimez les boutons existants du panneau
+                // Supprimer les boutons existants du panneau
                 buttonPanel1.removeAll();
                 menuPanel.setVisible(false);
 
-                // Ajoutez les boutons de niveau au panneau
+                // Ajouter les boutons de niveau au panneau
                 buttonPanel1.add(levelPanel);
 
-                // Actualisez le panneau pour montrer les nouveaux boutons
+                // Actualiser le panneau pour montrer les nouveaux boutons
                 buttonPanel1.revalidate();
                 buttonPanel1.repaint();
             }
